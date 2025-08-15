@@ -60,3 +60,7 @@ export interface FormComponent extends BaseComponent {
   title?: string;
   children: UIComponent[];
 }
+
+export type ConfigResponse = {
+  success: boolean;
+};
