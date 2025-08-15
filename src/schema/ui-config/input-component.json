@@ -1,0 +1,13 @@
+{
+  "id": "2",
+  "type": "input",
+  "placeholder": "Enter your name",
+  "defaultValue": "John Doe",
+  "className": "w-full p-2 border border-gray-300 rounded-md",
+  "ariaLabel": "Name input",
+  "required": true,
+  "validation": {
+    "maxLength": 100,
+    "minLength": 3
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "id": "1",
+  "type": "text",
+  "content": "Hello, world!",
+  "className": "text-2xl font-bold",
+  "ariaLabel": "Welcome message"
+}

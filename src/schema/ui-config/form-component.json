@@ -1,0 +1,43 @@
+{
+  "id": "3",
+  "type": "form",
+  "title": "Form Title",
+  "children": [
+    {
+      "id": "4",
+      "type": "text",
+      "content": "Hello, world!",
+      "className": "text-2xl font-bold",
+      "ariaLabel": "Welcome message"
+    },
+    {
+      "id": "5",
+      "type": "dropdown",
+      "options": [
+        {
+          "label": "Option 1",
+          "value": "option1"
+        },
+        {
+          "label": "Option 2",
+          "value": "option2"
+        },
+        {
+          "label": "Option 3",
+          "value": "option3"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "type": "button",
+      "text": "Submit",
+      "action": "submit",
+      "disabled": false,
+      "className": "bg-blue-500 text-white p-2 rounded-md",
+      "ariaLabel": "Submit button"
+    }
+  ],
+  "className": "w-full p-4 border border-gray-300 rounded-md",
+  "ariaLabel": "Form"
+}
