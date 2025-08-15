@@ -61,6 +61,18 @@ export interface FormComponent extends BaseComponent {
   children: UIComponent[];
 }
 
-export type ConfigResponse = {
+export interface UIConfiguration {
+  version: string;
+  components: UIComponent[];
+}
+
+export interface ApiResponse<T = unknown> {
   success: boolean;
-};
+  data?: T;
+  error?: {
+    code: string;
+    message: string;
+  };
+}
+
+export type ConfigResponse = ApiResponse<UIConfiguration>;
