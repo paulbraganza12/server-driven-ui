@@ -3,7 +3,7 @@ import { DropdownRenderer } from "./components/DropdownRenderer";
 import { InputRenderer } from "./components/InputRenderer";
 import { TextRenderer } from "./components/TextRenderer";
 import { ButtonRenderer } from "./components/ButtonRenderer";
-import { FormRenderer } from "../FormRenderer/FormRenderer";
+import { FormRenderer } from "./components/FormRenderer/FormRenderer";
 
 export class ComponentFactory {
   static createComponent(component: UIComponent) {

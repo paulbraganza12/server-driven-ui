@@ -1,5 +1,5 @@
 import { FormComponent } from "@/app/domain/ui";
-import { ComponentFactory } from "../UIRenderer/component.factory";
+import { ComponentFactory } from "../../component.factory";
 import { uiConfigService } from "@/app/services";
 
 type Props = {
