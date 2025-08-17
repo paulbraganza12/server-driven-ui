@@ -36,6 +36,7 @@ export const InputRenderer = ({ component, onChange }: Props) => {
     <div className={containerClasses}>
       <input
         id={inputId}
+        name={id}
         type="text"
         placeholder={placeholder}
         defaultValue={defaultValue}

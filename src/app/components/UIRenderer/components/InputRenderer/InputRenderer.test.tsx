@@ -25,6 +25,7 @@ describe("InputRenderer", () => {
     const input = screen.getByLabelText("Test input field");
     expect(input).toBeDefined();
     expect(input.getAttribute("id")).toBe("input-test-input");
+    expect(input.getAttribute("name")).toBe("test-input");
     expect(input.getAttribute("placeholder")).toBe("Enter text here");
     expect(input.getAttribute("type")).toBe("text");
     expect((input as HTMLInputElement).defaultValue).toBe("Initial value");

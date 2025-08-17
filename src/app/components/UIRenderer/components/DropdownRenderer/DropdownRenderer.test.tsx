@@ -25,6 +25,7 @@ describe("DropdownRenderer", () => {
     const select = screen.getByLabelText("Test dropdown");
     expect(select).toBeDefined();
     expect(select.getAttribute("id")).toBe("select-test-dropdown");
+    expect(select.getAttribute("name")).toBe("test-dropdown");
     expect((select as HTMLSelectElement).value).toBe("option1");
     expect(select.getAttribute("required")).toBe("");
 

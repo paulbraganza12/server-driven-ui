@@ -32,6 +32,7 @@ export const DropdownRenderer = ({ component, onChange }: Props) => {
       <div className="relative">
         <select
           id={selectId}
+          name={id}
           defaultValue={defaultValue || ""}
           required={required}
           aria-label={ariaLabel}
