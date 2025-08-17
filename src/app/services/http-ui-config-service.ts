@@ -24,7 +24,7 @@ export class HttpUIConfigurationService implements UIConfigurationService {
           success: false,
           error: {
             code: errorData.error?.code || "SERVER_ERROR",
-            message: "Failed to fetch UI configuration",
+            message: errorData.error?.message || "Failed to fetch UI configuration",
           },
         };
       }

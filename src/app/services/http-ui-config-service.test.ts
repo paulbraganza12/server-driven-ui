@@ -57,7 +57,7 @@ describe("HttpUIConfigurationService", () => {
         success: false,
         error: {
           code: "CONFIG_FETCH_ERROR",
-          message: "Failed to fetch UI configuration",
+          message: "Server configuration error", // Now uses the server's error message
         },
       });
     });

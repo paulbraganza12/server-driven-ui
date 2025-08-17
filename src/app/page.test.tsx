@@ -4,6 +4,7 @@ import Home from "./page";
 import { server } from "../test/setup";
 import {
   getConfigSuccess,
+  getConfigError,
   randomConfigResponse,
 } from "../test/test-support/http-ui-config-service";
 
@@ -18,6 +19,19 @@ describe("Home", () => {
     await renderHome();
 
     expect(screen.getByTestId("ui-renderer")).toBeDefined();
+  });
+
+  it("should show retry component when config api fails", async () => {
+    server.use(
+      getConfigError({
+        status: 500,
+        response: { success: false, error: { code: "SERVER_ERROR", message: "Server error" } },
+      }),
+    );
+
+    await renderHome();
+
+    expect(screen.getByTestId("ui-retry")).toBeDefined();
   });
 });
 
