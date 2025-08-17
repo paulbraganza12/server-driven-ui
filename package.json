@@ -36,6 +36,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-formatter-table": "^7.32.1",
     "jsdom": "^26.1.0",
+    "msw": "^2.10.5",
     "prettier": "^3.6.2",
     "tailwindcss": "^4",
     "typescript": "^5",
