@@ -134,4 +134,64 @@ describe("HttpUIConfigurationService", () => {
       }
     });
   });
+
+  describe("submitForm", () => {
+    it("should return successful response when API returns valid data", async () => {
+      const formData = testConfigService.randomFormData();
+      const formSubmissionResponse = testConfigService.randomFormSubmissionResponse({
+        success: true,
+        data: formData,
+      });
+      server.use(testConfigService.submitFormSuccess(formSubmissionResponse));
+
+      const result = await service.submitForm(formData, testConfigService.submitUrl, "POST");
+
+      expect(result.success).toBe(true);
+      expect(result.data).toEqual(formData);
+    });
+
+    it("should handle HTTP error responses (404, 500, etc.) without error body", async () => {
+      const formData = testConfigService.randomFormData();
+      server.use(testConfigService.submitFormError({ status: 404 }));
+
+      const result = await service.submitForm(formData, testConfigService.submitUrl, "POST");
+
+      expect(result).toEqual({
+        success: false,
+        error: {
+          code: "NETWORK_ERROR",
+          message: "Network error",
+        },
+      });
+    });
+
+    it("should handle server errors with JSON response (500 + body)", async () => {
+      const formData = testConfigService.randomFormData();
+      const errorResponse = {
+        success: false,
+        error: {
+          code: "SERVER_ERROR",
+          message: "Server error",
+        },
+      };
+      server.use(testConfigService.submitFormError({ status: 500, response: errorResponse }));
+
+      const result = await service.submitForm(formData, testConfigService.submitUrl, "POST");
+      expect(result).toEqual({
+        success: false,
+        error: {
+          code: "SERVER_ERROR",
+          message: "Server error",
+        },
+      });
+
+      expect(result).toEqual({
+        success: false,
+        error: {
+          code: "SERVER_ERROR",
+          message: "Server error",
+        },
+      });
+    });
+  });
 });

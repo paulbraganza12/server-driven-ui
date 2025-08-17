@@ -1,18 +1,37 @@
 import { FormComponent } from "@/app/domain/ui";
 import { ComponentFactory } from "../UIRenderer/component.factory";
+import { uiConfigService } from "@/app/services";
 
 type Props = {
-  components: FormComponent;
+  component: FormComponent;
 };
 
-export const FormRenderer = ({ components }: Props) => {
-  const { children, id, className, ...attributes } = components;
+export const FormRenderer = ({ component }: Props) => {
+  const { children, id, className, submitUrl, method = "POST", ...attributes } = component;
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.target as HTMLFormElement);
     const data = Object.fromEntries(formData);
-    console.log(data);
+
+    if (!submitUrl) {
+      console.warn("No submit URL provided for form");
+      return;
+    }
+
+    // TODO: Add validation for the form data
+
+    try {
+      const response = await uiConfigService.submitForm(data, submitUrl, method);
+
+      if (!response.success) {
+        throw new Error("Failed to submit form");
+      }
+
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (

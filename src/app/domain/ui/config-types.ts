@@ -1,3 +1,5 @@
+import { FormSubmissionMethod } from "./form-types";
+
 // Core component types
 export type ComponentType = "text" | "input" | "form" | "dropdown" | "button";
 
@@ -59,6 +61,8 @@ export interface FormComponent extends BaseComponent {
   type: "form";
   title?: string;
   children: UIComponent[];
+  submitUrl?: string;
+  method?: FormSubmissionMethod;
 }
 
 export interface UIConfiguration {

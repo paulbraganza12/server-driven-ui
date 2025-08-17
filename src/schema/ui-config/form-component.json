@@ -39,5 +39,7 @@
     }
   ],
   "className": "w-full p-4 border border-gray-300 rounded-md",
-  "ariaLabel": "Form"
+  "ariaLabel": "Form",
+  "submitUrl": "https://example.com/api/form",
+  "method": "POST"
 }

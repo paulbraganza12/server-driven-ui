@@ -7,6 +7,8 @@ const DEFAULT_CONFIG: UIConfiguration = {
       id: "contact-form",
       type: "form",
       title: "Contact Us",
+      submitUrl: "/api/submit",
+      method: "POST",
       children: [
         {
           id: "form-title",
