@@ -150,4 +150,12 @@ describe("UIRenderer", () => {
       expect(screen.queryByTestId("ui-renderer")).toBeNull();
     });
   });
+
+  describe("Component Rendering", () => {
+    it("should render text component", () => {
+      const successConfig = createSuccessConfig();
+      render(<UIRenderer initialConfigResponse={successConfig} />);
+      expect(screen.getByText("Test Content")).toBeDefined();
+    });
+  });
 });

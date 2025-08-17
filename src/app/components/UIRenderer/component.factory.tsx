@@ -16,14 +16,8 @@ export class ComponentFactory {
       case "button":
         return <ButtonRenderer component={component} />;
       default:
-        return (
-          <div
-            key={component.id}
-            className="p-2 bg-red-100 text-red-700 border border-red-300 rounded"
-          >
-            Unknown component type : {component.type}
-          </div>
-        );
+        console.log(`Unknown component type: ${component.type}`);
+        return null;
     }
   }
 }

@@ -55,16 +55,4 @@ describe("ComponentFactory", () => {
 
     expect(screen.getByText("Test button")).toBeDefined();
   });
-
-  it("should render unknown component fallback", () => {
-    const component = {
-      id: "unknown-1",
-      type: "unknown",
-    } as unknown as UIComponent;
-
-    const result = ComponentFactory.createComponent(component);
-    render(result);
-
-    expect(screen.getByText(/Unknown component type : unknown/)).toBeDefined();
-  });
 });
