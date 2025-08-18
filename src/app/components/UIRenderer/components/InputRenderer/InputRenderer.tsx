@@ -7,17 +7,7 @@ type Props = {
 };
 
 export const InputRenderer = ({ component, onChange }: Props) => {
-  const {
-    id,
-    placeholder,
-    defaultValue,
-    required,
-    className,
-    ariaLabel,
-    validation,
-    type: _componentType, // Exclude component type from spread : TODO: make this work for different types e.g. number, email, etc.
-    ...attributes
-  } = component;
+  const { id, placeholder, defaultValue, required, className, ariaLabel, validation } = component;
 
   // Generate unique IDs for accessibility
   const inputId = `input-${id}`;
@@ -46,7 +36,6 @@ export const InputRenderer = ({ component, onChange }: Props) => {
         onChange={(e) => onChange?.(e.target.value)}
         minLength={validation?.minLength}
         maxLength={validation?.maxLength}
-        {...attributes}
       />
     </div>
   );

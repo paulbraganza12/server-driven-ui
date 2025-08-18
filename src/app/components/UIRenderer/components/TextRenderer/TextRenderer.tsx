@@ -6,10 +6,10 @@ type Props = {
 };
 
 export const TextRenderer = ({ component }: Props) => {
-  const { content, className, ...attributes } = component;
+  const { content, className, id, ariaLabel } = component;
 
   return (
-    <div className={cn("text-sm text-gray-900", className)} {...attributes}>
+    <div className={cn("text-sm text-gray-900", className)} id={id} aria-label={ariaLabel}>
       {content}
     </div>
   );

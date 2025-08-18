@@ -7,7 +7,7 @@ type Props = {
 };
 
 export const FormRenderer = ({ component }: Props) => {
-  const { children, id, className, submitUrl, method = "POST", ...attributes } = component;
+  const { children, id, className, submitUrl, method = "POST", ariaLabel } = component;
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -35,7 +35,7 @@ export const FormRenderer = ({ component }: Props) => {
   };
 
   return (
-    <form id={id} className={className} onSubmit={handleSubmit} {...attributes}>
+    <form id={id} className={className} onSubmit={handleSubmit} aria-label={ariaLabel}>
       {children.map((child) => ComponentFactory.createComponent(child))}
     </form>
   );

@@ -7,16 +7,7 @@ type Props = {
 };
 
 export const ButtonRenderer = ({ component, onClick }: Props) => {
-  const {
-    id,
-    text,
-    className,
-    ariaLabel,
-    disabled,
-    action,
-    type: _componentType, // Exclude component type from spread
-    ...attributes
-  } = component;
+  const { id, text, className, ariaLabel, disabled, action } = component;
 
   const buttonId = `button-${id}`;
 
@@ -38,7 +29,6 @@ export const ButtonRenderer = ({ component, onClick }: Props) => {
       disabled={disabled}
       onClick={disabled ? undefined : onClick}
       type={buttonType}
-      {...attributes}
     >
       {text}
     </button>

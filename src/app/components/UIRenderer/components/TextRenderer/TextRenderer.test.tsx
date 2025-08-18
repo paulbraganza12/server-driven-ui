@@ -22,29 +22,4 @@ describe("TextRenderer", () => {
     expect(element.className).toContain("text-sm");
     expect(element.className).toContain("text-gray-900");
   });
-
-  it("should spread component attributes correctly and exclude content/className", () => {
-    const component: TextComponent = {
-      id: "test-attributes",
-      type: "text",
-      content: "Attributes test",
-      className: "test-class",
-      ariaLabel: "Test label",
-      required: true,
-    };
-
-    render(<TextRenderer component={component} />);
-
-    const element = screen.getByText("Attributes test");
-    expect(element).toBeDefined();
-
-    // Should spread these attributes
-    expect(element.getAttribute("id")).toBe("test-attributes");
-    expect(element.getAttribute("ariaLabel")).toBe("Test label");
-    expect(element.getAttribute("required")).toBe("");
-
-    // Should NOT spread content and className as attributes
-    expect(element.getAttribute("content")).toBeNull();
-    // className is handled separately by the className prop, not as an attribute
-  });
 });

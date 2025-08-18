@@ -6,6 +6,10 @@ export const GET = async (_request: NextRequest): Promise<NextResponse<ConfigRes
   try {
     const config = await getConfig();
 
+    // TODO: Add a check to see if the config is valid
+
+    // TODO: Sanitize the config
+
     const response: ConfigResponse = {
       success: true,
       data: config,

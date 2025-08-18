@@ -51,7 +51,7 @@ describe("FormRenderer", () => {
     const form = document.querySelector("#contact-form");
     expect(form).toBeDefined();
     expect(form?.getAttribute("id")).toBe("contact-form");
-    expect(form?.getAttribute("ariaLabel")).toBe("Contact form");
+    expect(form?.getAttribute("aria-label")).toBe("Contact form");
 
     // Check that children are rendered via ComponentFactory
     expect(screen.getByText("Contact Form")).toBeDefined();
@@ -97,7 +97,7 @@ describe("FormRenderer", () => {
     const form = document.querySelector("#contact-form");
     expect(form).toBeDefined();
     expect(form?.getAttribute("id")).toBe("contact-form");
-    expect(form?.getAttribute("ariaLabel")).toBe("Contact form");
+    expect(form?.getAttribute("aria-label")).toBe("Contact form");
 
     const nameInput = screen.getByPlaceholderText("Enter your name");
     const emailInput = screen.getByPlaceholderText("Enter your email");
@@ -110,8 +110,8 @@ describe("FormRenderer", () => {
 
     expect(mockUIConfigService.submitForm).toHaveBeenCalledWith(
       {
-        name: "John Doe",
-        email: "john.doe@example.com",
+        "email-input": "john.doe@example.com",
+        "name-input": "John Doe",
       },
       "https://example.com/api/form",
       "POST",

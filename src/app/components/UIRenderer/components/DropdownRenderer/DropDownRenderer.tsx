@@ -8,17 +8,7 @@ type Props = {
 };
 
 export const DropdownRenderer = ({ component, onChange }: Props) => {
-  const {
-    id,
-    options,
-    defaultValue,
-    placeholder,
-    className,
-    ariaLabel,
-    required,
-    type: _componentType,
-    ...attributes
-  } = component;
+  const { id, options, defaultValue, placeholder, className, ariaLabel, required } = component;
 
   const selectId = `select-${id}`;
 
@@ -38,7 +28,6 @@ export const DropdownRenderer = ({ component, onChange }: Props) => {
           aria-label={ariaLabel}
           className={selectClasses}
           onChange={onChange}
-          {...attributes}
         >
           {/* Default/placeholder option */}
           <option value="" disabled hidden>
