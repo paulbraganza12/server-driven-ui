@@ -9,7 +9,11 @@ export const TextRenderer = ({ component }: Props) => {
   const { content, className, id, ariaLabel } = component;
 
   return (
-    <div className={cn("text-sm text-gray-900", className)} id={id} aria-label={ariaLabel}>
+    <div
+      className={cn("text-sm text-gray-900", className)}
+      id={`text-${id}`}
+      aria-label={ariaLabel}
+    >
       {content}
     </div>
   );

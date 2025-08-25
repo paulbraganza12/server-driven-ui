@@ -23,3 +23,7 @@ export const getByText = (text: string) => {
 export const getByTitle = (title: string) => {
   return cy.get(`[title="${title}"]`);
 };
+
+export const getById = (id: string) => {
+  return cy.get(`#${id}`);
+};
