@@ -161,9 +161,12 @@ The system expects configuration in this format:
 The project includes comprehensive testing with a focus on reliability:
 
 - **Unit Tests**: All components and services tested with React Testing Library
+- **Journey Tests**: User workflow testing with Robot Pattern and API mocking
 - **Integration Tests**: API routes and form submission flows tested end-to-end
 - **MSW (Mock Service Worker)**: Network-level request mocking that doesn't break when implementation changes
 - **Test Coverage**: Components, services, and API endpoints all covered
+
+**[📖 Detailed Testing Strategy Documentation](src/test/README.md)**
 
 Run tests:
 
