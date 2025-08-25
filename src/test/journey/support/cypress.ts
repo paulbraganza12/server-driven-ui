@@ -1,5 +1,20 @@
 /// <reference types="cypress" />
 
+export type Interception = {
+  id: string;
+  method: "GET" | "PUT" | "POST";
+  path: string;
+  response: {
+    body: unknown;
+    statusCode: number;
+  };
+  times?: number;
+};
+
+export const registerInterceptor = ({ method, path, response, id, times }: Interception) => {
+  cy.intercept(path, { method, ...(times !== undefined && { times }) }, response).as(id);
+};
+
 export const getByTestId = (testId: string) => {
   return cy.get(`[data-testid="${testId}"]`);
 };
