@@ -11,7 +11,9 @@ export interface UIConfigurationService {
 }
 
 export class HttpUIConfigurationService implements UIConfigurationService {
-  constructor(private readonly baseUrl: string = "http://localhost:3000") {
+  constructor(
+    private readonly baseUrl: string = process.env.API_BASE_URL || "http://localhost:3000",
+  ) {
     this.baseUrl = baseUrl;
   }
 

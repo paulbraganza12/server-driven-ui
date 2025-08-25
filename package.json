@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
+    "dev:journey": "API_BASE_URL=http://localhost:3001 next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --color --format table --max-warnings 0 --cache",
