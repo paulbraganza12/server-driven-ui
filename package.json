@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
+    "dev:journey": "API_BASE_URL=http://localhost:3001 next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --color --format table --max-warnings 0 --cache",
@@ -13,10 +14,14 @@
     "format:fix": "prettier --write \"src/**/*.{ts,tsx,html,json}\"",
     "commit:check": "npm run lint && npm run format",
     "test": "vitest --run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:journey": "cypress run --config-file src/test/journey/cypress.config.ts",
+    "test:journey:open": "cypress open --config-file src/test/journey/cypress.config.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "cypress": "^15.0.0",
+    "mockttp": "^4.1.0",
     "next": "15.4.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
