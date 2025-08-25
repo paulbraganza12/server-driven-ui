@@ -13,7 +13,9 @@
     "format:fix": "prettier --write \"src/**/*.{ts,tsx,html,json}\"",
     "commit:check": "npm run lint && npm run format",
     "test": "vitest --run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:journey": "cypress run --config-file src/test/journey/cypress.config.ts",
+    "test:journey:open": "cypress open --config-file src/test/journey/cypress.config.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",
