@@ -5,7 +5,7 @@ import {
   FormComponent,
   TextComponent,
 } from "@/app/domain/ui/config-types";
-import { getById } from "../cypress";
+import { getById, getByLabelText, getByTestId } from "../cypress";
 
 export class ComponentScreenRobot {
   // Enter form data into the form
@@ -27,6 +27,14 @@ export class ComponentScreenRobot {
           break;
       }
     });
+  }
+
+  seesUIRetryError() {
+    getByTestId("ui-retry").should("exist");
+  }
+
+  clicksRetryButton() {
+    getByLabelText("Retry").click();
   }
 
   // See if the form exists

@@ -8,6 +8,7 @@ import {
   TextComponent,
 } from "@/app/domain/ui/config-types";
 import { randomConfigResponse } from "../../test-support/http-ui-config-service";
+import { given } from "../support/arrangements";
 
 describe("Component Screen", () => {
   beforeEach(() => {
@@ -46,6 +47,34 @@ describe("Component Screen", () => {
       );
       screen.seesButton(
         (configWithNameAndEmail.components[0] as FormComponent).children[3] as ButtonComponent,
+      );
+    });
+  });
+
+  it("should able to retry fetching the config", () => {
+    // Set up the mock API responses
+    cy.task("mockApiErrorResponse", {
+      path: "/api/ui-config",
+      message: "Failed to fetch UI configuration",
+      statusCode: 500,
+    });
+
+    given().withBff((bff) => {
+      bff.respondsWithConfigSuccess(configWithNameAndEmail);
+    });
+
+    when().launchApp((componentScreenRobot) => {
+      componentScreenRobot.seesUIRetryError();
+      componentScreenRobot.clicksRetryButton();
+    });
+
+    then().onComponentScreen((screen) => {
+      screen.seesForm(configWithNameAndEmail.components[0] as FormComponent);
+      screen.seesText(
+        (configWithNameAndEmail.components[0] as FormComponent).children[0] as TextComponent,
+      );
+      screen.seesInput(
+        (configWithNameAndEmail.components[0] as FormComponent).children[1] as InputComponent,
       );
     });
   });

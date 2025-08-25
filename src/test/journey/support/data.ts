@@ -16,18 +16,26 @@ export const configWithNameAndEmail: UIConfiguration = {
           ariaLabel: "Hello, world!",
         },
         {
-          id: "name",
+          id: "name-input",
           type: "input",
           placeholder: "Enter your full name",
           required: true,
           ariaLabel: "Full name input field",
+          validation: {
+            minLength: 2,
+            maxLength: 100,
+          },
         },
         {
-          id: "email",
+          id: "email-input",
           type: "input",
           placeholder: "Enter your email address",
           required: true,
           ariaLabel: "Email address input field",
+          validation: {
+            minLength: 3,
+            maxLength: 100,
+          },
         },
         {
           id: "submit-button",
@@ -44,6 +52,6 @@ export const configWithNameAndEmail: UIConfiguration = {
 };
 
 export const formDataWithNameAndEmail = {
-  name: "John Doe",
-  email: "john.doe@example.com",
+  "name-input": "John Doe",
+  "email-input": "john.doe@example.com",
 };
